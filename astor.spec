@@ -4,7 +4,7 @@
 #
 Name     : astor
 Version  : 0.6.2
-Release  : 1
+Release  : 2
 URL      : https://pypi.python.org/packages/d8/be/c4276b3199ec3feee2a88bc64810fbea8f26d961e0a4cd9c68387a9f35de/astor-0.6.2.tar.gz
 Source0  : https://pypi.python.org/packages/d8/be/c4276b3199ec3feee2a88bc64810fbea8f26d961e0a4cd9c68387a9f35de/astor-0.6.2.tar.gz
 Summary  : Read/rewrite/write Python ASTs
@@ -48,7 +48,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1522430908
+export SOURCE_DATE_EPOCH=1525366124
 python3 setup.py build -b py3
 
 %install
