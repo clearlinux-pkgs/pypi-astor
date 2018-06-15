@@ -4,7 +4,7 @@
 #
 Name     : astor
 Version  : 0.6.2
-Release  : 7
+Release  : 8
 URL      : https://pypi.python.org/packages/d8/be/c4276b3199ec3feee2a88bc64810fbea8f26d961e0a4cd9c68387a9f35de/astor-0.6.2.tar.gz
 Source0  : https://pypi.python.org/packages/d8/be/c4276b3199ec3feee2a88bc64810fbea8f26d961e0a4cd9c68387a9f35de/astor-0.6.2.tar.gz
 Summary  : Read/rewrite/write Python ASTs
