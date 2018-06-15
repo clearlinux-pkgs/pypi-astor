@@ -4,23 +4,31 @@
 #
 Name     : astor
 Version  : 0.6.2
-Release  : 4
+Release  : 5
 URL      : https://pypi.python.org/packages/d8/be/c4276b3199ec3feee2a88bc64810fbea8f26d961e0a4cd9c68387a9f35de/astor-0.6.2.tar.gz
 Source0  : https://pypi.python.org/packages/d8/be/c4276b3199ec3feee2a88bc64810fbea8f26d961e0a4cd9c68387a9f35de/astor-0.6.2.tar.gz
 Summary  : Read/rewrite/write Python ASTs
 Group    : Development/Tools
 License  : BSD-3-Clause
 Requires: astor-python3
+Requires: astor-license
 Requires: astor-python
 BuildRequires : pbr
 BuildRequires : pip
-BuildRequires : python-dev
 BuildRequires : python3-dev
 BuildRequires : setuptools
 
 %description
 astor -- AST observe/rewrite
         =============================
+
+%package license
+Summary: license components for the astor package.
+Group: Default
+
+%description license
+license components for the astor package.
+
 
 %package python
 Summary: python components for the astor package.
@@ -48,11 +56,13 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1525366124
+export SOURCE_DATE_EPOCH=1529090943
 python3 setup.py build -b py3
 
 %install
 rm -rf %{buildroot}
+mkdir -p %{buildroot}/usr/share/doc/astor
+cp LICENSE %{buildroot}/usr/share/doc/astor/LICENSE
 python3 -tt setup.py build -b py3 install --root=%{buildroot}
 echo ----[ mark ]----
 cat %{buildroot}/usr/lib/python3*/site-packages/*/requires.txt || :
@@ -60,6 +70,10 @@ echo ----[ mark ]----
 
 %files
 %defattr(-,root,root,-)
+
+%files license
+%defattr(-,root,root,-)
+/usr/share/doc/astor/LICENSE
 
 %files python
 %defattr(-,root,root,-)
