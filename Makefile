@@ -1,5 +1,5 @@
 PKG_NAME := astor
-URL = https://pypi.python.org/packages/d8/be/c4276b3199ec3feee2a88bc64810fbea8f26d961e0a4cd9c68387a9f35de/astor-0.6.2.tar.gz
+URL = https://files.pythonhosted.org/packages/99/80/f9482277c919d28bebd85813c0a70117214149a96b08981b72b63240b84c/astor-0.7.1.tar.gz
 ARCHIVES = 
 
 include ../common/Makefile.common
