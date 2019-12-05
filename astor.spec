@@ -4,7 +4,7 @@
 #
 Name     : astor
 Version  : 0.8.0
-Release  : 20
+Release  : 21
 URL      : https://files.pythonhosted.org/packages/4c/49/ebd87c47d8d0adf948850429b5360deb3bed1835c16393ad92e1f598bb43/astor-0.8.0.tar.gz
 Source0  : https://files.pythonhosted.org/packages/4c/49/ebd87c47d8d0adf948850429b5360deb3bed1835c16393ad92e1f598bb43/astor-0.8.0.tar.gz
 Summary  : Read/rewrite/write Python ASTs
