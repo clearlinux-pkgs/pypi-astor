@@ -4,7 +4,7 @@
 #
 Name     : astor
 Version  : 0.8.0
-Release  : 22
+Release  : 23
 URL      : https://files.pythonhosted.org/packages/4c/49/ebd87c47d8d0adf948850429b5360deb3bed1835c16393ad92e1f598bb43/astor-0.8.0.tar.gz
 Source0  : https://files.pythonhosted.org/packages/4c/49/ebd87c47d8d0adf948850429b5360deb3bed1835c16393ad92e1f598bb43/astor-0.8.0.tar.gz
 Summary  : Read/rewrite/write Python ASTs
@@ -14,11 +14,11 @@ Requires: astor-license = %{version}-%{release}
 Requires: astor-python = %{version}-%{release}
 Requires: astor-python3 = %{version}-%{release}
 BuildRequires : buildreq-distutils3
+Patch1: fix-build.patch
 
 %description
-=============================
 astor -- AST observe/rewrite
-=============================
+        =============================
 
 %package license
 Summary: license components for the astor package.
@@ -48,13 +48,16 @@ python3 components for the astor package.
 
 %prep
 %setup -q -n astor-0.8.0
+cd %{_builddir}/astor-0.8.0
+%patch1 -p1
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
-export LANG=C
-export SOURCE_DATE_EPOCH=1558291905
+export LANG=C.UTF-8
+export SOURCE_DATE_EPOCH=1575590873
+export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export NM=gcc-nm
@@ -69,7 +72,7 @@ python3 setup.py build
 export MAKEFLAGS=%{?_smp_mflags}
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/astor
-cp LICENSE %{buildroot}/usr/share/package-licenses/astor/LICENSE
+cp %{_builddir}/astor-0.8.0/LICENSE %{buildroot}/usr/share/package-licenses/astor/1664a4cbae596c411a3f8a61f3c1e73058afb323
 python3 -tt setup.py build  install --root=%{buildroot}
 echo ----[ mark ]----
 cat %{buildroot}/usr/lib/python3*/site-packages/*/requires.txt || :
@@ -80,7 +83,7 @@ echo ----[ mark ]----
 
 %files license
 %defattr(0644,root,root,0755)
-/usr/share/package-licenses/astor/LICENSE
+/usr/share/package-licenses/astor/1664a4cbae596c411a3f8a61f3c1e73058afb323
 
 %files python
 %defattr(-,root,root,-)
